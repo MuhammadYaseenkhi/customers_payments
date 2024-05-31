@@ -87,16 +87,7 @@ class HomeScreenState extends State<HomeScreen>  with WidgetsBindingObserver{
     getPartsListData("1");
   }
 
-  // Callback function to refresh the list
-  void _refreshList() {
-    setState(() {
-      // Call your API here to refresh the list
-      // Example: Fetch new data and update the itemList
-      // For demonstration, I'm simply changing the item list here
-      //itemList = ['Updated Item 1', 'Updated Item 2', 'Updated Item 3'];
-      fetchDepositSlips(outletId!);
-    });
-  }
+
 
 
   Future<String?> fetchData() async {
@@ -269,11 +260,10 @@ class HomeScreenState extends State<HomeScreen>  with WidgetsBindingObserver{
             context,
             MaterialPageRoute(
               builder: (context) =>  SubmissionPreview(
-                onClosed: _refreshList,
                 filePath: imgUploadModel.filePath!, // Provide the file path
                 urlOrLocal: true,
                 fileName: imgUploadModel.userFileName!,
-                fromAccNo: imgUploadModel.fromAccountNumber!,
+                //fromAccNo: imgUploadModel.fromAccountNumber!,
                // date: imgUploadModel.dateOfDeposit!,
                // amount: imgUploadModel.amount!.toString(),
                outletId: id,
@@ -833,11 +823,7 @@ class TransactionList extends StatelessWidget {
 
   }
 
-  void _refreshList() {
-     // homeScreenState.fetchDepositSlips(outletId!);
-    print("backpressed");
-    //homeScreenState.fetchDepositSlips(outletId!);
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -871,7 +857,6 @@ class TransactionList extends StatelessWidget {
                        context,
                        MaterialPageRoute(
                         builder: (context) =>  SubmissionPreview(
-                          onClosed: _refreshList,
                           filePath: transaction.filePath!, // Provide the file path
                           fileName: transaction.userFileName!,
                           id: transaction.id!,

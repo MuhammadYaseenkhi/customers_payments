@@ -33,10 +33,8 @@ class SubmissionPreview extends StatefulWidget {
   final String id;
   final bool urlOrLocal;
   final bool edit;
-  final VoidCallback onClosed;
 
   const SubmissionPreview({super.key,
-    required this.onClosed,
     required this.filePath,
     this.fileName = '',
     required this.urlOrLocal,
@@ -49,7 +47,7 @@ class SubmissionPreview extends StatefulWidget {
     this.refNo = '',
     this.details = '',
     this.outletId = '',
-    required this.edit
+    required this.edit,
   });
 
   @override
@@ -253,8 +251,8 @@ class _SubmissionPreviewState extends State<SubmissionPreview> {
       DeviceOrientation.landscapeRight,
       DeviceOrientation.landscapeLeft,
     ]);
-   // fromAccController.text = widget.fromAccNo;
-    voidCallback =  widget.onClosed();
+    fromAccController.text = widget.fromAccNo;
+   // voidCallback =  widget.onClosed();
     amountController.text = widget.amount;
     beneficiaryController.text = widget.beneficiary;
     refController.text = widget.refNo;
